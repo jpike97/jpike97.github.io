@@ -27,14 +27,3 @@ function fillStateDesc(stateName, stateGDP) {
     }
     
 }
-
-//separate this out (event handling)
-
-document.addEventListener('click', function (event) {
-	if (!event.target.matches('.gdp-button')) return;
-	event.preventDefault();
-    var audio = new Audio('sounds/soundeffect.mp3');
-    audio.play();
-    let guy = document.getElementsByClassName('imageguy')[0];
-    guy.classList.add('active');
-}, false);
