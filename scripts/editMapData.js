@@ -1,9 +1,6 @@
 
 //weird stuff
 //simplemaps_usmap_mapdata.main_settings.state_description = get;
-
-console.log(timeZoneGDPJson);
-console.log(stateGDPJson);
 let dollarUS = Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -26,8 +23,18 @@ function fillStateDesc(stateName, stateGDP) {
     let state = statesTitleCase.find(el => el.name === stateName);
     stateGDP = dollarUS.format(stateGDP);
     if (state != undefined) { 
-        console.log("state Abbrv is " + state.abbreviation);
         simplemaps_usmap_mapdata.state_specific[state.abbreviation]["description"] = "GDP (in millions) " + stateGDP;
     }
     
 }
+
+//separate this out (event handling)
+
+document.addEventListener('click', function (event) {
+	if (!event.target.matches('.gdp-button')) return;
+	event.preventDefault();
+    var audio = new Audio('sounds/soundeffect.mp3');
+    audio.play();
+    let guy = document.getElementsByClassName('imageguy')[0];
+    guy.classList.add('active');
+}, false);
