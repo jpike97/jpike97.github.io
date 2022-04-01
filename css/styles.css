@@ -1,0 +1,33 @@
+.munchy-man { 
+    display: none;
+}
+
+.munchy-man.reveal {
+    display: block;
+}
+body.munchy-man-background { 
+    background-image: url("../img/twitch-chewing.gif");
+    background-repeat: repeat;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: grey;
+    display: none;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+   
+  }
+  #myProgress.reveal { 
+      display: block;
+  }
+  .text { 
+      display: none;
+  }
+  .text.reveal { 
+      display: block;
+  }
