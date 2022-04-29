@@ -1,8 +1,7 @@
-
-
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +11,41 @@
   <script type="text/javascript" src="scripts/mapdata.js"></script>		
   <script type="text/javascript" src="scripts/usmap.js"></script>
   <script type="text/javascript" src="scripts/editMapData.js"></script> -->
-  <script type="text/javascript" src="scripts/munchyman.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="scripts/wordle.js"></script>
+  <link rel="stylesheet" href="css/wordle.css">
 </head>
+
 <body>
-<h1 class="header-text">Panama Bird Feeder Program</h1>
-<div class="bird-video">
-  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/WtoxxHADnGk?&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<a href="#" class="reveal-data" target="_blank">Click to identify current bird</a>
-<div class="munchy-man">
-  <img src="img/twitch-chewing.gif" />
-</div>
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
-<p class="text">Calculating Bird...</p>
+  <h1>Wordle Combine</h1>
+  <div class="fields">
+    <div class="pasty__wrapper">
+      <h3>Enter <a target="_blank" href="https://www.nytimes.com/games/wordle/index.html">Wordle</a> Here</h3>
+      <div class="pasty__area wordle">
+        <textarea id="wordle_input"
+        rows="5" cols="33"></textarea>
+      </div>
+    </div>
+    <div class="pasty__wrapper">
+      <h3>Enter <a target="_blank" href="https://worldle.teuteuf.fr/">Worldle</a> Here</h3>
+      <div class="pasty__area mapple">
+        <textarea id="mapple_input"
+        rows="5" cols="33"></textarea>
+      </div>
+    </div>
+    <div class="pasty__wrapper">
+      <h3>Enter <a target="_blank" href="https://framed.wtf/">Framed</a> Here</h3>
+      <div class="pasty__area framed">
+        <textarea id="framed_input"
+        rows="5" cols="33"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="submit">
+    <button class="submit-btn" type="button">Share Mega Results</button>
+  </div>
+  <div class="results__wrapper" id="popUp">
+    <p>Results Copied to Clipboard! Hold for munchyman...</p>
+  </div>
 </body>
+
 </html>

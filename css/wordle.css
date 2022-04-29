@@ -1,0 +1,7 @@
+.results__wrapper {
+    display: none;
+}
+
+.results__wrapper.active { 
+    display: block;
+}
