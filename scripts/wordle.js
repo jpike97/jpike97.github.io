@@ -29,14 +29,14 @@ function processData(wordleData, mappleData, framedData) {
 
    //get wordle num guesses
    let wordleNumGuesses = wordleData.split('/')[0].slice(-1);
-   wordleNumGuesses = wordleNumGuesses != 'x' ? wordleNumGuesses : '10000';
+   wordleNumGuesses = wordleNumGuesses != 'X' ? wordleNumGuesses : '10000';
    
    let mappleNumGuesses = mappleData.split('/')[0].slice(-1);
-   mappleNumGuesses = mappleNumGuesses != 'x' ? mappleNumGuesses : '10000';
+   mappleNumGuesses = mappleNumGuesses != 'X' ? mappleNumGuesses : '10000';
 
 
    let framedNumGuesses = framedData.split("🟥").length;
-   framedNumGuesses = framedNumGuesses > 6 ? "100000" : framedNumGuesses;
+   framedNumGuesses = framedNumGuesses > 6 ? "10000" : framedNumGuesses;
 
    let totalGuessNumber = parseInt(wordleNumGuesses) + parseInt(mappleNumGuesses) + parseInt(framedNumGuesses);
 
