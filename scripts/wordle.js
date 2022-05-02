@@ -43,6 +43,7 @@ function processData(wordleData, mappleData, framedData) {
    let formattedResult = wordleData + "\n" + "\n" + mappleData + "\n"  + framedData;
     formattedResult = formattedResult.replace("https://framed.wtf", '').replace("https://worldle.teuteuf.fr", '');
     returnObj.formattedResult = formattedResult;
+    totalGuessNumber = isNaN(totalGuessNumber) ? "According to all known laws of aviation, there is no way that a bee should be able to fly." : totalGuessNumber;
     returnObj.overallStats = "My Total Stats: " + totalGuessNumber + "/" + maximumGuesses;
 
     return returnObj;
