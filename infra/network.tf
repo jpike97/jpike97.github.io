@@ -27,7 +27,7 @@ resource "aws_eip" "ngw" {
 resource "aws_nat_gateway" "ngw" {
   count = local.az_count
 
-  allocation_id = element(aws_eip.ngw.*.id, count.index) # Elastic IP
+  allocation_id = element(aws_eip.ngw.*.id, count.index)    # Elastic IP
   subnet_id     = element(aws_subnet.dmz.*.id, count.index) # NAT Gateways must exist in a public subnet
   depends_on    = [aws_internet_gateway.igw]
 }
