@@ -2,4 +2,7 @@
 an app to aggregate daily nerd games
 
 ## Features
-Doesn't do shit
+* Create a user
+* Post scores everyday
+* Track history and stats 
+* Leaderboard with your friends
