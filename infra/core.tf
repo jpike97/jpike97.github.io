@@ -34,6 +34,4 @@ locals {
   }
 
   vpc_id     = data.terraform_remote_state.core.outputs.vpc_id
-  account_id = data.terraform_remote_state.core.outputs.account_id
-
 }
