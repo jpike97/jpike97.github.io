@@ -1,0 +1,7 @@
+.container.nopadding {
+    padding: 0;
+}
+
+.row.spacedtop {
+    margin-top: 20px;
+}

@@ -1,64 +1,7 @@
-.munchy-man { 
-    display: none;
-}
-
-.munchy-man.reveal {
-    display: block;
-}
-body.munchy-man-background { 
-    background-image: url("../img/twitch-chewing.gif");
-    background-repeat: repeat;
-}
-
 body { 
     max-width: 600px;
 }
 
-#myProgress {
-    width: 100%;
-    background-color: grey;
-    display: none;
-  }
-  
-  #myBar {
-    width: 1%;
-    height: 30px;
-    background-color: green;
-   
-  }
-  #myProgress.reveal { 
-      display: block;
-  }
-  .text { 
-      display: none;
-  }
-  .text.reveal { 
-      display: block;
-      padding-right: 50px;
-  }
-
-  .responsive-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: auto;
-    height: 100%;
-  }
-
-  @media (min-width: 900px) { 
-      .responsive-iframe { 
-          width: 100%;
-      }
-   }
-
-  .bird-video {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin: 0px 10px;
-    max-width: 800px;
-    text-align: center;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  }
+.container {
+    padding: 0;
+}
