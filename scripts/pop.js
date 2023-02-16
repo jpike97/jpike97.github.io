@@ -18,8 +18,11 @@
  class PopBot {
      constructor(props) {
          this._installEvents();
-         this._nounLength = nouns.length;
-         
+         this._nounsLength = nouns.length;
+         this._adverbsLength = adverbs.length;
+         this._prepositionsLength = prepositions.length;
+         this._adjectivesLength = adjectives.length;
+         this._verbsLength = verbs.length;
      }
  
      /**
@@ -30,37 +33,89 @@
          document
              .querySelector(PopBot.selectors.askButton)
              .addEventListener('click', event => this._handleAskClick(event));
+         document
+         .querySelector(PopBot.selectors.askArea)
+         .addEventListener('focus', event => this._handleAskFocus(event));
+     }
+
+     _handleAskFocus(event) {
+        console.log("focused!");
+        this._setAnswerSpace('Popbot waiting...')
+     }
+
+     _isVowel(c) {
+        return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1;
+     }
+     
+     _isLowerCase(c) {
+        return c == c.toLowerCase() && c != c.toUpperCase();
+     }
+
+     _generatePopAnswer() {
+        let isVowel = false;
+        const vowelCheckAdjective = this._getRandomAdjective();
+
+        if (this._isVowel(vowelCheckAdjective[0])) {
+            isVowel = true;
+        }
+        
+
+        const unformattedAnswer = `When the ${this._getRandomNoun()} ${this._getRandomVerb()}s 
+        ${this._getRandomAdverb()} ${this._getRandomPreposition()} the ${this._getRandomAdjective()} ${this._getRandomNoun()} 
+        of ${isVowel ? 'an' : 'a'} ${vowelCheckAdjective} ${this._getRandomNoun()}`;
+
+        const formattedAnswer = unformattedAnswer.replaceAll('_', ' ');
+    
+        return formattedAnswer;
      }
  
      _handleAskClick(event) {
         event.preventDefault();
-        console.log("answer space changed");
-        console.log("nouns ", nouns[36]);
-        this._setAnswerSpace("Hello, I am PopBot. I am here to help you with your questions. Please ask me a question.");
+        if (document.querySelector(PopBot.selectors.askArea).value === '') {
+            this._setAnswerSpace('Ask a question!!');
+            return;
+        }   
+        const popAnswer = this._generatePopAnswer();
+        this._setAnswerSpace(popAnswer);
      }
 
      _setAnswerSpace(answer) {
         document.querySelector(PopBot.selectors.responseArea).innerHTML = answer;
      }
 
+     _getRandomNumber(endOfRange) {
+        console.log("random number is ", Math.random());
+        return Math.floor(Math.random() * (endOfRange + 1));
+     }
+
      _getRandomNoun() {
-            const nounLength = nouns.length;
+            const randomIndex = this._getRandomNumber(this._nounsLength);
+            if (this._isLowerCase(nouns[randomIndex][0])) {
+                return nouns[randomIndex];
+            }
+            else {
+                return this._getRandomNoun();
+            }
      }
 
      _getRandomAdjective() {
-
+        const randomIndex = this._getRandomNumber(this._adjectivesLength);
+        return adjectives[randomIndex];
      }
 
      _getRandomAdverb() {
-
+        const randomIndex = this._getRandomNumber(this._adverbsLength);
+        return adverbs[randomIndex];
      }
 
      _getRandomVerb() {
-
+        const randomIndex = this._getRandomNumber(this._verbsLength);
+        return verbs[randomIndex];
      }
 
-     _getRAndomPreposition() {
-
+     _getRandomPreposition() {
+        const randomIndex = this._getRandomNumber(this._prepositionsLength);
+        return prepositions[randomIndex];
      }
 
  }
@@ -68,6 +123,7 @@
 PopBot.selectors = {
      askButton: '#button-ask',
      responseArea: '#response-area',
+     askArea: '#popbotinput'
  };
  
  PopBot.events = {

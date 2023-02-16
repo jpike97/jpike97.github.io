@@ -5,3 +5,9 @@
 .row.spacedtop {
     margin-top: 20px;
 }
+
+.chewing-guy-photo {
+    margin-right: 10px;
+    border: 1px solid rebeccapurple;
+    border-radius: 100px;
+}
